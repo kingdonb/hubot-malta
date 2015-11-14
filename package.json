@@ -1,0 +1,26 @@
+{
+  "name": "hubot-malta",
+  "version": "1.0.0",
+  "description": "UBHacking Knights of Malta Team Project",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingdonb/hubot-malta.git"
+  },
+  "keywords": [
+    "hubot",
+    "plugin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kingdonb/hubot-malta/issues"
+  },
+  "homepage": "https://github.com/kingdonb/hubot-malta#readme"
+}
