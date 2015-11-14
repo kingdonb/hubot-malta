@@ -4,9 +4,9 @@
   "peerDependencies": {
     "hubot": "2.x"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "UBHacking Knights of Malta Team Project",
-  "main": "Gruntfile.js",
+  "main": "index.coffee",
   "directories": {
     "test": "test"
   },
