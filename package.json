@@ -1,5 +1,9 @@
 {
   "name": "hubot-malta",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "hubot": "2.x"
+  },
   "version": "1.0.0",
   "description": "UBHacking Knights of Malta Team Project",
   "main": "Gruntfile.js",
@@ -11,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kingdonb/hubot-malta.git"
+    "url": "git://github.com/kingdonb/hubot-malta.git"
   },
   "keywords": [
     "hubot",
