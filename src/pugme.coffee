@@ -8,12 +8,12 @@
 #   None
 #
 # Commands:
-#   hubot pug me - Receive a pug
-#   hubot pug bomb N - get N pugs
+#   pugs - get one lovely pug
+#   tebot pug bomb N - get N pugs
 
 module.exports = (robot) ->
 
-  robot.respond /pug me/i, (msg) ->
+  robot.hear /sup dawg|pugs/i, (msg) ->
     msg.http("http://pugme.herokuapp.com/random")
       .get() (err, res, body) ->
         msg.send JSON.parse(body).pug
@@ -28,4 +28,4 @@ module.exports = (robot) ->
     msg.http("http://pugme.herokuapp.com/count")
       .get() (err, res, body) ->
         msg.send "There are #{JSON.parse(body).pug_count} pugs."
-
+  
