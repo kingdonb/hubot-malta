@@ -1,18 +1,19 @@
 # Description:
-#   Kingdon's callbacks
+#   List "setters" and the "find me a team" conversation machine
 #
 # Dependencies:
-#   None
+#   redis-brain, if you want your users' database to persist from
+#     one running hubot process onto the next
 #
 # Configuration:
 #   None
 #
 # Commands:
-#   tebot find me a team - Let me know if you need teammates
-#   tebot list me - Let me know that you need more team members
-#   tebot unlist me - Let me know that you already formed a team
-#   tebot I have an idea -
-#   tebot I know Microsoft Excel -
+#   hubot find me a team - Let me know if you need teammates
+#   hubot list me - Let me know that you need more team members
+#   hubot unlist me - Let me know that you already formed a team
+#   hubot I have an idea -
+#   hubot I know Microsoft Excel -
 
 setLang = (user, mat, brn) ->
   brn.set "language:#{user}", mat
@@ -66,7 +67,7 @@ module.exports = (robot) ->
     username = msg.envelope.user.name
     robot.brain.set "listed:#{username}", true
     t = "#{username}: OK, I will help you find you a team.\n"
-    t = t + "Try 'tebot unlist me' if you don't want yourself or your ideas to show on the list."
+    t = t + "Try '#{robot.name} unlist me' if you don't want yourself or your ideas to show on the list."
     lang = robot.brain.get "language:#{username}"
     t = t + "\nTry '#{robot.name} I know COBOL' to tell what language you like to code with" if lang == null
     msg.send t
@@ -78,7 +79,7 @@ module.exports = (robot) ->
     robot.brain.set "language:#{username}", mat
     l = robot.brain.get "listed:#{username}"
     t = "Thanks.  I'll be sure to mention it."
-    t = t + "\nNeed a team?  Try 'tebot list me' to share your skills." if !l
+    t = t + "\nNeed a team?  Try '#{robot.name} list me' to share your skills." if !l
     res.send t
 
   robot.respond /unlist me/i, (msg) ->
@@ -110,7 +111,7 @@ module.exports = (robot) ->
       robot.brain.set "state:#{username}", ""
       l = robot.brain.get "listed:#{username}"
       t = "Got it."
-      t = t + "\nNeed a team?  Try 'tebot list me' to share your idea." if !l
+      t = t + "\nNeed a team?  Try '#{robot.name} list me' to share your idea." if !l
       res.send t
     return null if flipFlop username, userstate, parentState, doTheJob, match, robot.brain
 
@@ -154,7 +155,7 @@ module.exports = (robot) ->
     parentState = "saveAdvPreference"
     saveAdvPreference = (mat) ->
       if mat.match /yes/
-        res.send "I'll add you to the list.  Use 'tebot list users' or 'tebot list ideas' to look for other hackers who can still form a team."
+        res.send "I'll add you to the list.  Use '#{robot.name} list users' or '#{robot.name} list ideas' to look for other hackers who can still form a team."
         newState = "next"
         robot.brain.set "state:#{username}", newState
         robot.brain.set "listed:#{username}", true

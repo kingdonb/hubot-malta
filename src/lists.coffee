@@ -1,5 +1,5 @@
 # Description:
-#   Kingdon's callbacks
+#   List "getters"
 #
 # Dependencies:
 #   None
@@ -8,15 +8,15 @@
 #   None
 #
 # Commands:
-#   tebot list users - Show un-teamed users listed by language
-#   tebot list ideas - Show the list of ideas from un-teamed users
-#   tebot idea #n - Ask whose idea is idea #n
+#   hubot list users - Show un-teamed users listed by language
+#   hubot list ideas - Show the list of ideas from un-teamed users
+#   hubot idea #n - Ask whose idea is idea #n to join their team
 
 module.exports = (robot) ->
 
-#   tebot forget everything - Please don't take my brain!
+#   hubot forget everything - Please don't take my brain!
 #  robot.respond /forget everything/, (msg) ->
-#    robot.brain.set "_private"
+#    robot.brain.set "_private" # This won't work because redis-brain plugin
 #
   robot.respond /list users/i, (msg) ->
     users = robot.brain.get "users"

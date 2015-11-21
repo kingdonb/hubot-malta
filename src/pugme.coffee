@@ -9,7 +9,7 @@
 #
 # Commands:
 #   pugs - get one lovely pug
-#   tebot pug bomb N - get N pugs
+#   hubot pug bomb N - get N pugs
 
 module.exports = (robot) ->
 
