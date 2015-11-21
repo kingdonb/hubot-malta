@@ -1,31 +1,44 @@
-# hubot-pugme
+# hubot-malta
 
-Pugme is the most important hubot script
+Malta is the team-building chat bot plugin for Hubot
 
-See [`src/pugme.coffee`](src/pugme.coffee) for full documentation.
+See [`src/malta.coffee`](src/malta.coffee) for full documentation.
 
 ## Installation
 
 In hubot project repo, run:
 
-`npm install hubot-pugme --save`
+`npm install hubot-malta --save`
 
-Then add **hubot-pugme** to your `external-scripts.json`:
+Then add **hubot-malta** to your `external-scripts.json`:
 
 ```json
 [
-  "hubot-pugme"
+  "hubot-malta"
 ]
 ```
 
 ## Sample Interaction
 
+The unique thing in tebot's source depends on hubot's `redis-brain` plugin, or
+the in-memory brain to save persistent information.  Most hubot plugins only
+seem to answer single commands, but don't have a conversation with the user.
+
+`find me a team` command starts a dialog between tebot and the user to build a
+database suitable for building teams at a Hack-a-Thon.  Say "help" in a private
+message to tebot and read the full list of supported commands.
+
 ```
-user1>> hubot pug me
-hubot>> http://30.media.tumblr.com/tumblr_lj50gs8rAX1qaa50yo1_500.jpg
-user1>> hubot pug bomb me
-hubot>> http://30.media.tumblr.com/tumblr_lj50gs8rAX1qaa50yo1_500.jpg
-hubot>> http://24.media.tumblr.com/95a84579fa297844891b3ab1a5c76c0a/tumblr_mooibbcKl51rylzllo1_500.jpg
-hubot>> http://27.media.tumblr.com/tumblr_ll5akuIrji1qk3h3co1_500.png
-hubot>> http://29.media.tumblr.com/tumblr_ll3xcmS6Bh1qb08qmo1_500.jpg
+user1>> tebot find me a team
+hubot>> (...)
+user1>> tebot: i have an idea
+hubot>> (...)
+user1>> eating a whole wheel of cheese
+hubot>> Ok, user1.  I have saved your idea.
+user1>> tebot: list users
+user1>> tebot: list ideas
+user1>> tebot: list me
+hubot>> (...)
+user1>> tebot: unlist me
+hubot>> (...)
 ```
